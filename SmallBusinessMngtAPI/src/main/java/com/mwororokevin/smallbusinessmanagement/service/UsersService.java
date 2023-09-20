@@ -10,4 +10,6 @@ public interface UsersService {
     public List<Users> getUsersList();
 
     public Users getUserById(Long userId);
+
+    public void deleteUserById(Long userId);
 }

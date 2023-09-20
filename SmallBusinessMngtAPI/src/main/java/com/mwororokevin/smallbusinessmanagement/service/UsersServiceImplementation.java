@@ -26,4 +26,9 @@ public class UsersServiceImplementation implements UsersService {
     public Users getUserById(Long userId) {
         return usersRepository.findById(userId).get();
     }
+
+    @Override
+    public void deleteUserById(Long userId) {
+        usersRepository.deleteById(userId);
+    }
 }

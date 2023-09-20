@@ -26,4 +26,10 @@ public class UsersController {
     public Users fetchUserById(@PathVariable("id") Long userId) {
         return usersService.getUserById(userId);
     }
+
+    @DeleteMapping("users/{id}")
+    public String deleteUserById(@PathVariable("id") Long userId) {
+        usersService.deleteUserById(userId);
+        return "User Deleted successfully";
+    }
 }
