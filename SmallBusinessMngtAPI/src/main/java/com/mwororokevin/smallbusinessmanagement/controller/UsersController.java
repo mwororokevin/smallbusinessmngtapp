@@ -3,10 +3,7 @@ package com.mwororokevin.smallbusinessmanagement.controller;
 import com.mwororokevin.smallbusinessmanagement.model.Users;
 import com.mwororokevin.smallbusinessmanagement.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,10 @@ public class UsersController {
     @GetMapping("/users")
     public List<Users> getAllUsers() {
         return usersService.getUsersList();
+    }
+
+    @GetMapping("/users/{id}")
+    public Users fetchUserById(@PathVariable("id") Long userId) {
+        return usersService.getUserById(userId);
     }
 }

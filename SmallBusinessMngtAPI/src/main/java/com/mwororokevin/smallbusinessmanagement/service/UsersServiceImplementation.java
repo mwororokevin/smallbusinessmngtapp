@@ -21,4 +21,9 @@ public class UsersServiceImplementation implements UsersService {
     public List<Users> getUsersList() {
         return usersRepository.findAll();
     }
+
+    @Override
+    public Users getUserById(Long userId) {
+        return usersRepository.findById(userId).get();
+    }
 }

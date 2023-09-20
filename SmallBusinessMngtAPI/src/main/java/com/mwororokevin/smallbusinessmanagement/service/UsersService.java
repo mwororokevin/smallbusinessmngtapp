@@ -8,4 +8,6 @@ public interface UsersService {
     public Users saveUser(Users user);
 
     public List<Users> getUsersList();
+
+    public Users getUserById(Long userId);
 }
