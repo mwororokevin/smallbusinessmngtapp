@@ -12,4 +12,6 @@ public interface UsersService {
     public Users getUserById(Long userId);
 
     public void deleteUserById(Long userId);
+
+    public Users updateUser(Long userId, Users users);
 }
