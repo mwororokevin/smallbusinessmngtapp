@@ -5,6 +5,8 @@ import com.mwororokevin.smallbusinessmanagement.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UsersServiceImplementation implements UsersService {
     @Autowired
@@ -13,5 +15,10 @@ public class UsersServiceImplementation implements UsersService {
     @Override
     public Users saveUser(Users user) {
         return usersRepository.save(user);
+    }
+
+    @Override
+    public List<Users> getUsersList() {
+        return usersRepository.findAll();
     }
 }
