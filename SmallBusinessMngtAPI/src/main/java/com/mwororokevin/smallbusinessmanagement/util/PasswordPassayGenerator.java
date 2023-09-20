@@ -31,7 +31,7 @@ public class PasswordPassayGenerator {
             }
         };
         CharacterRule splitCharRule = new CharacterRule(specialChars);
-        splitCharRule.setNumberOfCharacters(3);
+        splitCharRule.setNumberOfCharacters(2);
 
         return passwordGenerator.generatePassword(12, splitCharRule, lowerCaseRule, upperCaseRule, digitRule);
     }
