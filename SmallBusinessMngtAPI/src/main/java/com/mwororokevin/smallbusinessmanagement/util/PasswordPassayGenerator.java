@@ -4,9 +4,10 @@ import org.passay.CharacterData;
 import org.passay.CharacterRule;
 import org.passay.EnglishCharacterData;
 import org.passay.PasswordGenerator;
+import static org.springframework.beans.MethodInvocationException.ERROR_CODE;
 
-public class PasswordGenerator {
-    public static String generatePassayPassword() {
+public class PasswordPassayGenerator {
+    public static String generatePassword() {
         PasswordGenerator passwordGenerator = new PasswordGenerator();
         CharacterData lowerCaseChars = EnglishCharacterData.LowerCase;
         CharacterRule lowerCaseRule = new CharacterRule(lowerCaseChars);
@@ -30,7 +31,7 @@ public class PasswordGenerator {
             }
         };
         CharacterRule splitCharRule = new CharacterRule(specialChars);
-        splitCharRule.setNumberOfCharacters(2);
+        splitCharRule.setNumberOfCharacters(3);
 
         return passwordGenerator.generatePassword(12, splitCharRule, lowerCaseRule, upperCaseRule, digitRule);
     }
