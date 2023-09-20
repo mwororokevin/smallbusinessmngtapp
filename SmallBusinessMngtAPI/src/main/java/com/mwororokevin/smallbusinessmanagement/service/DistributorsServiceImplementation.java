@@ -1,6 +1,7 @@
 package com.mwororokevin.smallbusinessmanagement.service;
 
 import com.mwororokevin.smallbusinessmanagement.model.Distributors;
+import com.mwororokevin.smallbusinessmanagement.model.Users;
 import com.mwororokevin.smallbusinessmanagement.repository.DistributorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,23 @@ public class DistributorsServiceImplementation implements DistributorsService {
 
     @Override
     public Distributors updateDistributor(Long distributorId, Distributors distributors) {
-        return null;
+        Distributors distributorDB = distributorsRepository.findById(distributorId).get();
+
+        if(Objects.nonNull(distributors.getSurname()) && !"".equalsIgnoreCase(distributors.getSurname())) {
+            distributorDB.setSurname(distributors.getSurname());
+        }
+
+        if(Objects.nonNull(distributors.getOtherNames()) && !"".equalsIgnoreCase(distributors.getOtherNames())) {
+            distributorDB.setOtherNames(distributors.getOtherNames());
+        }
+
+        if(Objects.nonNull(distributors.getEmail()) && !"".equalsIgnoreCase(distributors.getEmail())) {
+            distributorDB.setEmail(distributors.getEmail());
+        }
+
+        distributorDB.setUpdateDateTime(LocalDateTime.now());
+
+        return distributorsRepository.save(distributorDB);
     }
 
     @Override

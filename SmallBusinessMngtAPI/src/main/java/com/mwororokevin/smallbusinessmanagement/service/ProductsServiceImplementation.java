@@ -20,7 +20,7 @@ public class ProductsServiceImplementation implements ProductsService {
 
         product.setCreationDateTime(localDateTime);
         product.setUpdateDateTime(localDateTime);
-        
+
         return productsRepository.save(product);
     }
 
