@@ -1,18 +1,18 @@
 package com.mwororokevin.smallbusinessmanagement.service;
 
-import com.mwororokevin.smallbusinessmanagement.model.Distributors;
 import com.mwororokevin.smallbusinessmanagement.model.Products;
 
 import java.util.List;
 
 public interface ProductsService {
-    public Products saveNewProduct(Products product);
 
-    public List<Products> getProductsList();
+    Products saveNewProduct(Products product);
 
-    public Products getProductById(Long productId);
+    List<Products> getProductsList();
 
-    public void deleteProductById(Long distributorId);
+    Products getProductById(Long productId);
+
+    void deleteProductById(Long distributorId);
 
     Products updateProduct(Long productId, Products product);
 }

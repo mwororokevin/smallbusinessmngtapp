@@ -1,6 +1,5 @@
 package com.mwororokevin.smallbusinessmanagement.controller;
 
-import com.mwororokevin.smallbusinessmanagement.model.Distributors;
 import com.mwororokevin.smallbusinessmanagement.model.Products;
 import com.mwororokevin.smallbusinessmanagement.service.ProductsService;
 import org.slf4j.Logger;
