@@ -2,6 +2,8 @@ package com.mwororokevin.smallbusinessmanagement.service;
 
 import com.mwororokevin.smallbusinessmanagement.model.Users;
 import com.mwororokevin.smallbusinessmanagement.repository.UsersRepository;
+import com.mwororokevin.smallbusinessmanagement.util.GenerateUniqueUsername;
+import com.mwororokevin.smallbusinessmanagement.util.PasswordPassayGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,14 @@ public class UsersServiceImplementation implements UsersService {
 
     @Override
     public Users saveUser(Users user) {
+        user.setUsername(GenerateUniqueUsername.getUserName(user.getOtherNames(), user.getSurname()));
+        user.setPassword(PasswordPassayGenerator.generatePassword());
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+
+        user.setCreationDateTime(localDateTime);
+        user.setUpdateDateTime(localDateTime);
+
         return usersRepository.save(user);
     }
 
