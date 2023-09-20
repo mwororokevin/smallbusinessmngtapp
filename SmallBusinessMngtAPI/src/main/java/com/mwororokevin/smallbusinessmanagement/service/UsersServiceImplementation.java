@@ -62,4 +62,24 @@ public class UsersServiceImplementation implements UsersService {
 
         return usersRepository.save(userDB);
     }
+
+    @Override
+    public Users fetchUserBySurnameIgnoreCase(String surname) {
+        return usersRepository.findBySurnameIgnoreCase(surname);
+    }
+
+    @Override
+    public Users fetchUserByOthernamesIgnoreCase(String othernames) {
+        return usersRepository.findByOtherNamesIgnoreCase(othernames);
+    }
+
+    @Override
+    public Users fetchUserByUsernameIgnoreCase(String username) {
+        return usersRepository.findByUsernameIgnoreCase(username);
+    }
+
+    @Override
+    public Users fetchUserByEmailIgnoreCase(String email) {
+        return usersRepository.findByEmailIgnoreCase(email);
+    }
 }

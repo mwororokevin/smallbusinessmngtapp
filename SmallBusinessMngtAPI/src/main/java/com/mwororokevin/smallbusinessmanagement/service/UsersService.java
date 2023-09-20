@@ -14,4 +14,12 @@ public interface UsersService {
     public void deleteUserById(Long userId);
 
     public Users updateUser(Long userId, Users users);
+
+    public Users fetchUserBySurnameIgnoreCase(String surname);
+
+    public Users fetchUserByOthernamesIgnoreCase(String othernames);
+
+    public Users fetchUserByUsernameIgnoreCase(String username);
+
+    public Users fetchUserByEmailIgnoreCase(String email);
 }

@@ -37,4 +37,24 @@ public class UsersController {
     public Users updateUser(@PathVariable("id") Long userId, @RequestBody Users users) {
         return usersService.updateUser(userId, users);
     }
+
+    @GetMapping("/users/surname/{surname}")
+    public Users fetchUserByName(@PathVariable("surname") String surname) {
+        return usersService.fetchUserBySurnameIgnoreCase(surname);
+    }
+
+    @GetMapping("/users/othernames/{othernames}")
+    public Users fetchUserByOthernames(@PathVariable("othernames") String othernames) {
+        return usersService.fetchUserByOthernamesIgnoreCase(othernames);
+    }
+
+    @GetMapping("/users/username/{username}")
+    public Users fetchUserByUsername(@PathVariable("username") String username) {
+        return usersService.fetchUserByUsernameIgnoreCase(username);
+    }
+
+    @GetMapping("/users/email/{email}")
+    public Users fetchUserByEmail(@PathVariable("email") String email) {
+        return usersService.fetchUserByEmailIgnoreCase(email);
+    }
 }
