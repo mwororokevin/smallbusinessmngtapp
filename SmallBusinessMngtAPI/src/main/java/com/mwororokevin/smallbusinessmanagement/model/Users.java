@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -37,6 +38,24 @@ public class Users {
     @Email(message = "Incorrect Email Address format.")
     @Column(name = "user_email")
     private String email;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
+    private Set<OrderHeader> ordersCreator;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
+    private Set<OrderHeader> ordersUpdater;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
+    private Set<Products> productsCreator;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
+    private Set<Products> productsUpdater;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
+    private Set<Distributors> distributorCreator;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
+    private Set<Distributors> distributorUpdater;
 
     @Column(name = "creation_date_time")
     private LocalDateTime creationDateTime;

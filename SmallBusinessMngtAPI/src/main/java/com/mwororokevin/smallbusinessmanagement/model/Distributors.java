@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -37,6 +38,17 @@ public class Distributors {
 
     @Column(name = "phone_number_2")
     private String phoneNumber2;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "distributorId", cascade = CascadeType.ALL)
+    private Set<OrderHeader> orders;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "creation_user")
+    private Users creationUser;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "update_user")
+    private Users updateUser;
 
     @Column(name = "creation_date_time")
     private LocalDateTime creationDateTime;
