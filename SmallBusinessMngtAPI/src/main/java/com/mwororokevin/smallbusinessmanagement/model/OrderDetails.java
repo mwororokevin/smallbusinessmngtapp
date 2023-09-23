@@ -14,21 +14,36 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class OrderHeader {
+public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "order_id")
-    private Long orderId;
+    @Column(name = "order_detail_id")
+    private Long orderDetailId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "distributor_id")
-    private Distributors distributorId;
+    @JoinColumn(name = "distributor_distributor_id")
+    private Distributors distributor;
 
-    @Column(name = "order_amount")
-    private double orderAmount;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_product_id")
+    private Products product;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "packaging", cascade = CascadeType.ALL)
-    private Set<OrderDetails> orderDetailHeader;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "packaging_packaging_id")
+    private Packaging packaging;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_header_order_id")
+    private OrderHeader orderHeader;
+
+    @Column(name = "order_quantity")
+    private int orderQuantity;
+
+    @Column(name = "price_per_order")
+    private double pricePerOrder;
+
+    @Column(name = "total_price")
+    private double totalPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creation_user")

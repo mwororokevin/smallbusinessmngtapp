@@ -57,6 +57,12 @@ public class Users {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
     private Set<Distributors> distributorUpdater;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
+    private Set<OrderDetails> orderDetailsCreator;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
+    private Set<OrderDetails> orderDetailsUpdater;
+
     @Column(name = "creation_date_time")
     private LocalDateTime creationDateTime;
 

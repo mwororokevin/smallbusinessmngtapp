@@ -1,7 +1,5 @@
 package com.mwororokevin.smallbusinessmanagement.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -10,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,6 +23,9 @@ public class Products {
 
     @NotBlank(message = "Please add Product name.")
     private String productName;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<OrderDetails> orderDetailProduct;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creation_user")

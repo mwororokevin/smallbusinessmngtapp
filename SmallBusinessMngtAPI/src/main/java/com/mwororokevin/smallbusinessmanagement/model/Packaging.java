@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,6 +23,9 @@ public class Packaging {
 
     @Column(name = "packaging_size")
     private int packagingSize;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderHeader", cascade = CascadeType.ALL)
+    private Set<OrderDetails> orderDetailPackaging;
 
     @NotBlank(message = "Please add the volume measurement Millilitres or Litres")
     private String metricUnit;
