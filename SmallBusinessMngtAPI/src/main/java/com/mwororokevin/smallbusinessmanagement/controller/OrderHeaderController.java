@@ -38,7 +38,7 @@ public class OrderHeaderController {
     public String deleteOrderHeaderById(@PathVariable("id") Long orderHeaderId) {
         LOGGER.info("Inside deleteOrderHeaderById of OrderHeaderController");
         orderHeaderService.deleteOrderHeaderById(orderHeaderId);
-        return "Distributor Deleted successfully";
+        return "Order Header Deleted successfully";
     }
 
     @PutMapping("/order-headers/{id}")
