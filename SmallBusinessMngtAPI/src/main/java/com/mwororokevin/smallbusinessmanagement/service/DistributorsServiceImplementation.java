@@ -55,6 +55,9 @@ public class DistributorsServiceImplementation implements DistributorsService {
             distributorDB.setEmail(distributors.getEmail());
         }
 
+        if(Objects.nonNull(distributors.getUpdateUser())) {
+            distributorDB.setUpdateUser(distributors.getUpdateUser());
+        }
         distributorDB.setUpdateDateTime(LocalDateTime.now());
 
         return distributorsRepository.save(distributorDB);

@@ -38,19 +38,19 @@ public class OrderDetailsServiceImplementation implements OrderDetailsService {
     public OrderDetails updateOrderDetailsById(Long orderDetailsId, OrderDetails orderDetails) {
         OrderDetails orderDetailsDB = orderDetailsRepository.findById(orderDetailsId).get();
 
-        if(Objects.nonNull(orderDetailsDB.getDistributor())) {
+        if(Objects.nonNull(orderDetails.getDistributor())) {
             orderDetailsDB.setDistributor(orderDetailsDB.getDistributor());
         }
 
-        if(Objects.nonNull(orderDetailsDB.getProduct())) {
+        if(Objects.nonNull(orderDetails.getProduct())) {
             orderDetailsDB.setProduct(orderDetailsDB.getProduct());
         }
 
-        if(Objects.nonNull(orderDetailsDB.getPackaging())) {
+        if(Objects.nonNull(orderDetails.getPackaging())) {
             orderDetailsDB.setPackaging(orderDetailsDB.getPackaging());
         }
 
-        if(Objects.nonNull(orderDetailsDB.getOrderHeader())) {
+        if(Objects.nonNull(orderDetails.getOrderHeader())) {
             orderDetailsDB.setOrderHeader(orderDetailsDB.getOrderHeader());
         }
 
