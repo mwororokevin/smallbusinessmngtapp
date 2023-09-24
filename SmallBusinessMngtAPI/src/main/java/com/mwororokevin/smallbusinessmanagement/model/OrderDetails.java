@@ -28,9 +28,9 @@ public class OrderDetails {
     @JoinColumn(name = "product_product_id")
     private Products product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "packaging_packaging_id")
-    private Packaging packaging;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "packaging_id")
+//    private Packaging orderDetails;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_header_order_id")
@@ -44,6 +44,10 @@ public class OrderDetails {
 
     @Column(name = "total_price")
     private double totalPrice;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "distributor_id")
+    private Distributors distributorId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creation_user")

@@ -42,8 +42,8 @@ public class Distributors {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "distributorId", cascade = CascadeType.ALL)
     private Set<OrderHeader> orders;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
-    private Set<Distributors> orderDetailDistributor;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "distributorId", cascade = CascadeType.ALL)
+    private Set<OrderDetails> orderDetails;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creation_user")
