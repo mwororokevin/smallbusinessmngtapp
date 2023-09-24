@@ -1,6 +1,5 @@
 package com.mwororokevin.smallbusinessmanagement.Packaging;
 
-import com.mwororokevin.smallbusinessmanagement.Products.PackagingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

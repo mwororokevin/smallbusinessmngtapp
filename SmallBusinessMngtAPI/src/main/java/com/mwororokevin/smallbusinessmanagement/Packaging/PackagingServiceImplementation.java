@@ -1,7 +1,5 @@
-package com.mwororokevin.smallbusinessmanagement.Products;
+package com.mwororokevin.smallbusinessmanagement.Packaging;
 
-import com.mwororokevin.smallbusinessmanagement.Packaging.Packaging;
-import com.mwororokevin.smallbusinessmanagement.Packaging.PackagingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
