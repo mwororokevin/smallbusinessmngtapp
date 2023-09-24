@@ -1,6 +1,5 @@
 package com.mwororokevin.smallbusinessmanagement.Suppliers;
 
-import com.mwororokevin.smallbusinessmanagement.OrderDetails.OrderDetails;
 import com.mwororokevin.smallbusinessmanagement.Users.Users;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Getter
 @Setter
