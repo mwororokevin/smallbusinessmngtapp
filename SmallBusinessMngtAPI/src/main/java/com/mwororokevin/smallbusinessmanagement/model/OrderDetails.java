@@ -28,9 +28,9 @@ public class OrderDetails {
     @JoinColumn(name = "product_product_id")
     private Products product;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "packaging_id")
-//    private Packaging orderDetails;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "packaging_id")
+    private Packaging packaging;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_header_order_id")

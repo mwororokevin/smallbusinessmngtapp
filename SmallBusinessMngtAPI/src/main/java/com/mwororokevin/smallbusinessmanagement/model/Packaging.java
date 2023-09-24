@@ -27,6 +27,9 @@ public class Packaging {
     @NotBlank(message = "Please add the volume measurement Millilitres or Litres")
     private String metricUnit;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "packaging", cascade = CascadeType.ALL)
+    private Set<OrderDetails> orderDetails;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creation_user")
     private Users creationUser;
