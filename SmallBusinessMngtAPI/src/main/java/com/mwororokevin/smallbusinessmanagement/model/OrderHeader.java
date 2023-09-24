@@ -27,9 +27,6 @@ public class OrderHeader {
     @Column(name = "order_amount")
     private double orderAmount;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "packaging", cascade = CascadeType.ALL)
-    private Set<OrderDetails> orderDetailHeader;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creation_user")
     private Users creationUser;
