@@ -58,6 +58,12 @@ public class Users {
     private Set<Distributors> distributorUpdater;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
+    private Set<Packaging> packagingCreator;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
+    private Set<Packaging> packagingUpdater;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
     private Set<OrderDetails> orderDetailsCreator;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)

@@ -24,11 +24,16 @@ public class Packaging {
     @Column(name = "packaging_size")
     private int packagingSize;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderHeader", cascade = CascadeType.ALL)
-    private Set<OrderDetails> orderDetailPackaging;
-
     @NotBlank(message = "Please add the volume measurement Millilitres or Litres")
     private String metricUnit;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "creation_user")
+    private Users creationUser;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "update_user")
+    private Users updateUser;
 
     @Column(name = "creation_date_time")
     private LocalDateTime creationDateTime;
