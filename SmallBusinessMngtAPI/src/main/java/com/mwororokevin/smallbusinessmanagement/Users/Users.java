@@ -5,6 +5,7 @@ import com.mwororokevin.smallbusinessmanagement.Distributors.Distributors;
 import com.mwororokevin.smallbusinessmanagement.OrderHeaders.OrderHeaders;
 import com.mwororokevin.smallbusinessmanagement.Packaging.Packaging;
 import com.mwororokevin.smallbusinessmanagement.Products.Products;
+import com.mwororokevin.smallbusinessmanagement.Suppliers.Suppliers;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -73,6 +74,12 @@ public class Users {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
     private Set<OrderDetails> orderDetailsUpdater;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creationUser", cascade = CascadeType.ALL)
+    private Set<Suppliers> suppliersCreator;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "updateUser", cascade = CascadeType.ALL)
+    private Set<Suppliers> suppliersUpdater;
 
     @Column(name = "creation_date_time")
     private LocalDateTime creationDateTime;
