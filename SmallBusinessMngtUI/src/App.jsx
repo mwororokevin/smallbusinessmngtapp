@@ -1,9 +1,10 @@
-import Login from "./components/Login";
+
+import ResetPassword from "./components/ResetPassword";
 
 
 function App() {
   return (
-    <Login />
+    <ResetPassword />
   )
 }
 
