@@ -20,7 +20,7 @@ export default function Login() {
   useEffect(() => {
     // console.log(formErrors)
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(loginValues)
+      // console.log(loginValues)
     }
   }, [formErrors, isSubmit, loginValues])
 
@@ -43,8 +43,11 @@ export default function Login() {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
-      <pre>{JSON.stringify(loginValues, undefined, 2)}</pre>
-
+      {/* {
+        Object.keys(formErrors).length === 0 && isSubmit ?
+          (<p>Signed in succesfully</p>) :
+          (<pre>{JSON.stringify(loginValues, undefined, 2)}</pre>)
+      } */}
       <form
         onSubmit={handleLoginForm}
         className="w-3/5"
