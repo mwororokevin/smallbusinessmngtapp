@@ -14,7 +14,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    "baseUrl": ".",
+    "baseUrl": "src/",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
 
     /* Linting */
     "strict": true,
@@ -23,5 +28,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
+  "types": ["node"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
