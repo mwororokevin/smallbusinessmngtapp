@@ -23,6 +23,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
