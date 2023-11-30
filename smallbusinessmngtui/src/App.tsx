@@ -1,7 +1,8 @@
 // import { useState } from "react"
 
 // import UserModal from './components/users/UserModal'
-import UsersPage from './components/users/Users'
+import DistributorsPage from './components/distributors/Distributors'
+// import UsersPage from './components/users/Users'
 
 function App() {
   // const [isModalOpen, setModal] = useState(false)
@@ -13,7 +14,8 @@ function App() {
 
   return (
     <>
-      <UsersPage />
+      <DistributorsPage />
+      {/* <UsersPage /> */}
       {/* <button onClick={openModal}>Open Modal</button>
       {isModalOpen && <UserModal />} */}
     </>
