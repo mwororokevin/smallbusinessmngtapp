@@ -1,23 +1,19 @@
 // import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
 
-// import UserModal from './components/users/UserModal'
+import UserModal from './components/users/Users'
 import DistributorsPage from './components/distributors/Distributors'
-// import UsersPage from './components/users/Users'
+import SuppliersPage from './components/suppliers/Supplier'
 
 function App() {
-  // const [isModalOpen, setModal] = useState(false)
-
-  // const openModal = () => {
-  //   setModal(true)
-  //   console.log(isModalOpen)
-  // }
 
   return (
     <>
-      <DistributorsPage />
-      {/* <UsersPage /> */}
-      {/* <button onClick={openModal}>Open Modal</button>
-      {isModalOpen && <UserModal />} */}
+      <Routes>
+        <Route path="/" element={<UserModal />} />
+        <Route path="distributors" element={<DistributorsPage />} />
+        <Route path="suppliers" element={<SuppliersPage />} />
+      </Routes>
     </>
   )
 }
