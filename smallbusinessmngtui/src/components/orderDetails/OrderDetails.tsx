@@ -32,7 +32,7 @@ export type OrderDetails = {
   updateDate: Date
 }
 
-export default function UsersPage() {
+export default function OrdersPage() {
   const [userJSONData, setUserJSONData] = useState('')
 
 
@@ -43,7 +43,7 @@ export default function UsersPage() {
   const [orderHeader, setOrderHeader] = useState("")
   const [orderQuantity, setOrderQuantity] = useState(0)
   const [pricePerOrder, setPricePerOrder] = useState(0)
-  const [totalPrice, setTotalProce] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
     loadUsers()
@@ -196,25 +196,30 @@ export default function UsersPage() {
   const [isNewUserModal, setNewUserModal] = useState(false)
   const [isEditUserModal, setEditUserModal] = useState(false)
 
-  const openNewUserModal = () => {
+  const openNewOrderDetailModal = () => {
     setNewUserModal(true)
   }
 
-  const closeNewUserModal = () => {
+  const closeNewOrderDetailModal = () => {
     setNewUserModal(false)
   }
 
-  const closeEditUserModal = () => {
+  const closeEditOrderDetailModal = () => {
     setEditUserModal(false)
   }
 
-  const viewUser = (userId: number, surname: string, otherNames: string, username: string, email: string) => {
+  const viewUser = (
+    orderDetailId: number, distributor: string, product: string, packaging: string,
+    orderHeader: string, orderQuantity: number, pricePerOrder: number, totalPrice: number) => {
     // console.log(userId, surname, otherNames, username, email)
-    setUserId(userId)
-    setSurname(surname)
-    setOtherNames(otherNames)
-    setUserName(username)
-    setEmail(email)
+    setOrderDetailId(orderDetailId)
+    setDistributor(distributor)
+    setProduct(product)
+    setPackaging(packaging)
+    setOrderHeader(orderHeader)
+    setOrderQuantity(orderQuantity)
+    setPricePerOrder(pricePerOrder)
+    setTotalPrice(totalPrice)
     setEditUserModal(true)
   }
 
@@ -223,7 +228,7 @@ export default function UsersPage() {
       <div className="container mx-auto py-10">
         <div>
           <button
-            onClick={openNewUserModal}
+            onClick={openNewOrderDetailModal}
             className="py-2 px-6 bg-green-700 rounded-sm text-white font-semibold tracking-wide"
           >
             Add New User
@@ -233,17 +238,19 @@ export default function UsersPage() {
 
         <AddNewUser
           showModal={isNewUserModal}
-          closeModal={closeNewUserModal}
+          closeModal={closeNewOrderDetailModal}
         />
 
         <EditUser
           showModal={isEditUserModal}
-          closeModal={closeEditUserModal}
-          userId={userId}
-          surname={surname}
-          otherNames={otherNames}
-          username={username}
-          email={email}
+          closeModal={closeEditOrderDetailModal}
+          orderDetailId={orderDetailId}
+          distributor={distributor}
+          product={product}
+          packaging={packaging}
+          orderHeader={orderHeader}
+          orderQuantity={orderQuantity}
+          orderHeader={orderHeader}
         />
       </div>
     </>
