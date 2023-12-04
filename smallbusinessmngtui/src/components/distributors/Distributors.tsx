@@ -17,7 +17,7 @@ import {
 } from "../../@/components/ui/dropdown-menu"
 
 
-// const baseURL = "http://localhost:8082/"
+// const baseURL = "http://13.51.167.116:8082/"
 
 export type Distributors = {
   id: number
@@ -31,7 +31,7 @@ export type Distributors = {
 }
 
 export default function DistributorsPage() {
-  const [distributorJSONData, setDistributorJSONData] = useState('')
+  const [distributorJSONData, setDistributorJSONData] = useState([])
 
 
   const [distributorId, setDistributorId] = useState(0)
@@ -46,7 +46,7 @@ export default function DistributorsPage() {
   }, [])
 
   const loadDistributors = async () => {
-    const result = await axios.get("http://localhost:8082/distributors")
+    const result = await axios.get("http://13.51.167.116:8082/distributors")
     // { console.log(result.data) }
     setDistributorJSONData(result.data)
   }
@@ -178,7 +178,7 @@ export default function DistributorsPage() {
                 // onClick={(e) => console.log(e)}
                 // onClick={() => alert(row.getValue("distributorId"))}
                 onClick={() => {
-                  const baseURL = "http://localhost:8082/distributors/"
+                  const baseURL = "http://13.51.167.116:8082/distributors/"
                   const distributorId = row.getValue("distributorId")
                   console.log(distributorId)
 

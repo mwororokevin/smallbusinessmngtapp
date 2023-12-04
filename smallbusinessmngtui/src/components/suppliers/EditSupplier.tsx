@@ -12,7 +12,7 @@ type EditSupplierProps = {
   supplierContactPerson: string
 }
 
-const baseURL = "http://localhost:8082/suppliers"
+const baseURL = "http://13.51.167.116:8082/suppliers"
 
 export default function EditUser(props: EditSupplierProps) {
   const supplierId: number = props.supplierId

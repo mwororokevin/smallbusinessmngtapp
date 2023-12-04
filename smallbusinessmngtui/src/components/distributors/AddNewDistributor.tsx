@@ -7,7 +7,7 @@ type AddNewDistributorProps = {
   closeModal: () => void
 }
 
-const baseURL = "http://localhost:8082/distributors"
+const baseURL = "http://13.51.167.116:8082/distributors"
 
 export default function AddNewUser(props: AddNewDistributorProps) {
   const [surname, setSurname] = useState("")

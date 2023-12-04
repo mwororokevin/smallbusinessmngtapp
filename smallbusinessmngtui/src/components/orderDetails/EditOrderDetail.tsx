@@ -7,12 +7,15 @@ type EditOrderDetailsProps = {
   closeModal: () => void
   orderDetailId: number
   distributor: string
-  otherNames: string
+  product: string
   packaging: string
   orderHeader: string
+  orderQuantity: number
+  pricePerOrder: number
+  totalPrice: number
 }
 
-const baseURL = "http://localhost:8082/order-details/"
+const baseURL = "http://13.51.167.116:8082/order-details/"
 
 export default function EditOrderDetails(props: EditOrderDetailsProps) {
   const orderDetailId: number = props.orderDetailId
@@ -27,15 +30,17 @@ export default function EditOrderDetails(props: EditOrderDetailsProps) {
   const submitUserEdits = () => {
     // e.preventDefault()
 
-    axios.put(`${baseURL}${orderDetailId}`, {
+    axios.put(`${baseURL}/${orderDetailId}`, {
       "distributor": distributor,
       "product": product,
       "packaging": packaging,
-      "orderHeader": orderHeader
+      "orderHeader": orderHeader,
+      "orderQuantity": orderQuantity,
+      "pricePerOrder": pricePerOrder,
+      "totalPrice": totalPrice,
     }).then(() => {
 
     })
-
   }
 
   return props.showModal ? (
@@ -44,7 +49,7 @@ export default function EditOrderDetails(props: EditOrderDetailsProps) {
         <div className="py-8 px-4 rounded-lg">
           <div className="mb-10 flex justify-between cursor-pointer">
             <h1 className="font-bold text-lg uppercase text-left">
-              Edit User
+              Edit Order
             </h1>
             <IoMdCloseCircle
               onClick={props.closeModal}
@@ -59,27 +64,27 @@ export default function EditOrderDetails(props: EditOrderDetailsProps) {
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label className="block capitalize tracking-wide text-gray-700 text-md font-bold mb-2">
-                  distributor
+                  Distributor
                 </label>
                 <input
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="distributor"
                   type="text"
                   defaultValue={props.distributor}
-                  onChange={(e) => { setdistributor(e.target.value) }}
+                  onChange={(e) => { setDistributor(e.target.value) }}
                 >
                 </input>
               </div>
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label className="block capitalize tracking-wide text-gray-700 text-md font-bold mb-2">
-                  Other Names
+                  Product
                 </label>
                 <input
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                  id="otherNames"
+                  id="product"
                   type="text"
-                  defaultValue={props.otherNames}
-                  onChange={(e) => { setOtherNames(e.target.value) }}
+                  defaultValue={props.product}
+                  onChange={(e) => { setProduct(e.target.value) }}
                 >
                 </input>
               </div>
@@ -87,27 +92,70 @@ export default function EditOrderDetails(props: EditOrderDetailsProps) {
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label className="block capitalize tracking-wide text-gray-700 text-md font-bold mb-2">
-                  packaging
+                  Packaging
                 </label>
                 <input
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="packaging"
                   type="string"
                   defaultValue={props.packaging}
-                  onChange={(e) => { setpackaging(e.target.value) }}
+                  onChange={(e) => { setPackaging(e.target.value) }}
                 >
                 </input>
               </div>
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label className="block capitalize tracking-wide text-gray-700 text-md font-bold mb-2">
-                  orderHeader Address
+                  Order Header
                 </label>
                 <input
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="orderHeader"
                   type="orderHeader"
                   defaultValue={props.orderHeader}
-                  onChange={(e) => { setorderHeader(e.target.value) }}
+                  onChange={(e) => { setOrderHeader(e.target.value) }}
+                >
+                </input>
+              </div>
+            </div>
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label className="block capitalize tracking-wide text-gray-700 text-md font-bold mb-2">
+                  Quantity
+                </label>
+                <input
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="orderQuantity"
+                  type="string"
+                  defaultValue={props.orderQuantity}
+                  onChange={(e) => { setOrderQuantity(e.target.value) }}
+                >
+                </input>
+              </div>
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label className="block capitalize tracking-wide text-gray-700 text-md font-bold mb-2">
+                  Price Per Unit
+                </label>
+                <input
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="pricePerOrder"
+                  type="text"
+                  defaultValue={props.pricePerOrder}
+                  onChange={(e) => { setPricePerOrder(e.target.value) }}
+                >
+                </input>
+              </div>
+            </div>
+            <div className="flex flex-wrap -mx-3 mb-6">
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label className="block capitalize tracking-wide text-gray-700 text-md font-bold mb-2">
+                  totalPrice
+                </label>
+                <input
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="totalPrice"
+                  type="string"
+                  defaultValue={props.totalPrice}
+                  onChange={(e) => { setTotalPrice(e.target.value) }}
                 >
                 </input>
               </div>

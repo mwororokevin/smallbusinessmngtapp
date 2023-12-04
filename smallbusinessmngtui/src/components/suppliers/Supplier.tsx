@@ -15,10 +15,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../@/components/ui/dropdown-menu"
-import Navbar from "../Shared/Navbar"
 
-
-const baseURL = "http://localhost:8082/suppliers"
+const baseURL = "http://13.51.167.116:8082/suppliers"
 
 export type Suppliers = {
   supplierId: number
@@ -31,7 +29,7 @@ export type Suppliers = {
 }
 
 export default function SuppliersPage() {
-  const [supplierJSONData, setSupplierJSONData] = useState('')
+  const [supplierJSONData, setSupplierJSONData] = useState([])
 
 
   const [supplierId, setSupplierId] = useState(0)
@@ -163,7 +161,7 @@ export default function SuppliersPage() {
                 // onClick={(e) => console.log(e)}
                 // onClick={() => alert(row.getValue("supplierId"))}
                 onClick={() => {
-                  const baseURL = "http://localhost:8082/suppliers/"
+                  const baseURL = "http://13.51.167.116:8082/suppliers/"
                   const supplierId = row.getValue("supplierId")
                   console.log(supplierId)
 

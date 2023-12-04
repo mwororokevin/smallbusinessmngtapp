@@ -15,10 +15,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../@/components/ui/dropdown-menu"
-import Navbar from "../Shared/Navbar"
 
 
-// const baseURL = "http://localhost:8082/"
+// const baseURL = "http://13.51.167.116:8082/"
 
 export type Users = {
   id: number
@@ -32,7 +31,7 @@ export type Users = {
 }
 
 export default function UsersPage() {
-  const [userJSONData, setUserJSONData] = useState('')
+  const [userJSONData, setUserJSONData] = useState([])
 
 
   const [userId, setUserId] = useState(0)
@@ -46,7 +45,7 @@ export default function UsersPage() {
   }, [])
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:8082/users")
+    const result = await axios.get("http://13.51.167.116:8082/users")
     // { console.log(result.data) }
     setUserJSONData(result.data)
   }
@@ -164,7 +163,7 @@ export default function UsersPage() {
                 // onClick={(e) => console.log(e)}
                 // onClick={() => alert(row.getValue("userId"))}
                 onClick={() => {
-                  const baseURL = "http://localhost:8082/users/"
+                  const baseURL = "http://13.51.167.116:8082/users/"
                   const userID = row.getValue("userId")
                   console.log(userID)
 

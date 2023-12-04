@@ -4,7 +4,7 @@ import { DataTable } from "./data-table"
 import AddNewUser from "./AddNewOrderDetail"
 import EditUser from "./EditOrderDetail"
 import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal, Users } from "lucide-react"
+import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 import { Button } from "../../@/components/ui/button"
 import { Checkbox } from "../../@/components/ui/checkbox"
 import {
@@ -17,7 +17,7 @@ import {
 } from "../../@/components/ui/dropdown-menu"
 
 
-const baseURL = "http://localhost:8082/order-details/"
+const baseURL = "http://13.51.167.116:8082/order-details/"
 
 export type OrderDetails = {
   orderId: number
@@ -33,7 +33,7 @@ export type OrderDetails = {
 }
 
 export default function OrdersPage() {
-  const [userJSONData, setUserJSONData] = useState('')
+  const [userJSONData, setUserJSONData] = useState([])
 
 
   const [orderDetailId, setOrderDetailId] = useState(0)
@@ -151,7 +151,7 @@ export default function OrdersPage() {
     {
       id: "actions",
       cell: ({ row }) => {
-        const user = row.original
+        const orderDetail = row.original
 
         return (
           <DropdownMenu>
@@ -168,8 +168,8 @@ export default function OrdersPage() {
                 // onClick={(e) => console.log(e)}
                 // onClick={() => alert(row.getValue("userId"))}
                 onClick={() => {
-                  const baseURL = "http://localhost:8082/users/"
-                  const userID = row.getValue("userId")
+                  const baseURL = "http://13.51.167.116:8082/order-details/"
+                  const userID = row.getValue("orderDetailId")
                   console.log(userID)
 
                   axios.delete(`${baseURL}${userID}`).then(() => {
@@ -182,7 +182,11 @@ export default function OrdersPage() {
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                onClick={() => viewUser(row.getValue("userId"), user.surname, user.otherNames, user.username, user.email)}
+                onClick={() => viewOrderDetail(
+                  row.getValue("orderDetailId"), orderDetail.distributor,
+                  orderDetail.product, orderDetail.packaging, orderDetail.orderHeader,
+                  orderDetail.orderQuantity, orderDetail.pricePerOrder, orderDetail.totalPrice
+                )}
               >
                 View/Edit User
               </DropdownMenuItem>
@@ -208,7 +212,7 @@ export default function OrdersPage() {
     setEditUserModal(false)
   }
 
-  const viewUser = (
+  const viewOrderDetail = (
     orderDetailId: number, distributor: string, product: string, packaging: string,
     orderHeader: string, orderQuantity: number, pricePerOrder: number, totalPrice: number) => {
     // console.log(userId, surname, otherNames, username, email)
@@ -250,7 +254,8 @@ export default function OrdersPage() {
           packaging={packaging}
           orderHeader={orderHeader}
           orderQuantity={orderQuantity}
-          orderHeader={orderHeader}
+          pricePerOrder={pricePerOrder}
+          totalPrice={totalPrice}
         />
       </div>
     </>

@@ -9,7 +9,7 @@ type EditSupplierProps = {
   productName: string
 }
 
-const baseURL = "http://localhost:8082/products/"
+const baseURL = "http://13.51.167.116:8082/products/"
 
 export default function EditUser(props: EditSupplierProps) {
   const productId: number = props.productId

@@ -17,7 +17,7 @@ import {
 } from "../../@/components/ui/dropdown-menu"
 
 
-const baseURL = "http://localhost:8082/products"
+const baseURL = "http://13.51.167.116:8082/products"
 
 export type Products = {
   productId: number
@@ -27,7 +27,7 @@ export type Products = {
 }
 
 export default function ProductsPage() {
-  const [productJSONData, setproductJSONData] = useState('')
+  const [productJSONData, setproductJSONData] = useState([])
 
 
   const [productId, setProductId] = useState(0)
@@ -114,7 +114,7 @@ export default function ProductsPage() {
                 // onClick={(e) => console.log(e)}
                 // onClick={() => alert(row.getValue("productId"))}
                 onClick={() => {
-                  const baseURL = "http://localhost:8082/products/"
+                  const baseURL = "http://13.51.167.116:8082/products/"
                   const productId = row.getValue("productId")
                   console.log(productId)
 

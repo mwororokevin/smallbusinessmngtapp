@@ -9,16 +9,6 @@
 // import Navbar from "./components/Shared/Navbar"
 
 function App() {
-
-  // const XLayout = () => {
-  //   return (
-  //     <>
-  //       <Navbar />
-  //       <Outlet />
-  //     </>
-  //   )
-  // }
-
   return (
     <>
 

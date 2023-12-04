@@ -7,7 +7,7 @@ type AddNewSupplierProps = {
   closeModal: () => void
 }
 
-const baseURL = "http://localhost:8082/products"
+const baseURL = "http://13.51.167.116:8082/products"
 
 export default function AddNewSupplier(props: AddNewSupplierProps) {
   const [productName, setProductName] = useState("")
