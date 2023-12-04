@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*", allowedHeaders="*")
 public class DistributorsController {
     @Autowired
     private DistributorsService distributorsService;
